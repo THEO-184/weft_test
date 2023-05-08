@@ -15,13 +15,11 @@ const useTableData = <T extends UserTableData>(
 		() => tabledata.slice(itemOffset, endOffset),
 		[itemOffset, endOffset, tabledata]
 	);
-	const handleNavigation = React.useCallback(
-		(event: any) => {
-			const newOffset = (event.selected * 4) % data.length;
-			setItemOffset(newOffset);
-		},
-		[setItemOffset]
-	);
+	const handleNavigation = (event: any) => {
+		const newOffset = (event.selected * 4) % data.length;
+		setItemOffset(newOffset);
+	};
+	console.log("currentItems", currentItems);
 	return { handleNavigation, currentItems, CustomPageCount, data, columns };
 };
 

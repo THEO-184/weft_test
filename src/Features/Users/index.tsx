@@ -9,7 +9,7 @@ import Table from "../../components/Table";
 const Users = () => {
 	const { tableData, isLoading } = useGetAllUsers();
 	const data = tableData ? useMemo(() => [...tableData], [tableData]) : [];
-	// const columns = React.useMemo(() => [...UsersTableColumn], []);
+
 	const { CustomPageCount, columns, currentItems, handleNavigation } =
 		useTableData(UsersTableColumn, data);
 

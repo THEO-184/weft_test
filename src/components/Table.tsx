@@ -1,5 +1,5 @@
 import { TableInstance } from "react-table";
-import { UserTableData } from "../interfaces/users.interfaces";
+import { useNavigate } from "react-router-dom";
 
 interface ITableProps
 	extends Pick<
@@ -21,10 +21,11 @@ const Table = ({
 	prepareRow,
 	isLoading,
 }: ITableProps) => {
-	// const { CustomPageCount, handleNavigation } = useTableData(
-	// 	tableColumns,
-	// 	data
-	// );
+	const navigate = useNavigate();
+
+	const handleNavigateToUserPosts = (id: number) => {
+		navigate(`/posts/${id}`);
+	};
 
 	return (
 		<div>
@@ -59,7 +60,10 @@ const Table = ({
 										return (
 											<tr
 												{...row.getRowProps()}
-												className="border-b dark:border-neutral-500"
+												className="border-b dark:border-neutral-500 cursor-pointer"
+												onClick={() =>
+													handleNavigateToUserPosts(row.original.id)
+												}
 											>
 												{row.cells.map((cell: any) => {
 													return (

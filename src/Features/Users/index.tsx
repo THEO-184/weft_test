@@ -1,28 +1,18 @@
 import React, { useMemo } from "react";
 import { useGetAllUsers } from "../../services/users";
 import { useTable } from "react-table";
+import { UsersTableColumn } from "../../constants/users";
+import Pagination from "../../components/Pagination";
+import useTableData from "../../hooks/useTableData";
 
 const Users = () => {
 	const { tableData, isLoading } = useGetAllUsers();
 	const data = tableData ? useMemo(() => [...tableData], [tableData]) : [];
-	const columns = React.useMemo(
-		() => [
-			{
-				Header: "FullName",
-				accessor: "name",
-			},
-			{
-				Header: "Email",
-				accessor: "email",
-			},
-			{
-				Header: "Address",
-				accessor: "address",
-			},
-		],
-		[]
-	);
-	const tableInstance = useTable<any>({ columns, data });
+	// const columns = React.useMemo(() => [...UsersTableColumn], []);
+	const { CustomPageCount, columns, currentItems, handleNavigation } =
+		useTableData(UsersTableColumn, data);
+
+	const tableInstance = useTable<any>({ columns, data: currentItems });
 	const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
 		tableInstance;
 	return (
@@ -81,6 +71,10 @@ const Users = () => {
 						)}
 					</div>
 				</div>
+				<Pagination
+					pageCount={CustomPageCount}
+					onPageChange={handleNavigation}
+				/>
 			</div>
 		</div>
 	);

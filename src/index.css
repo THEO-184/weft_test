@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* PAGINATION STYLING */
+.page-links {
+	color: #41479b;
+	width: 30px;
+	height: 30px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
+	margin-right: 0.5rem;
+}
+
+.pagination_container {
+	display: flex;
+	margin: 0.7rem 0;
+	justify-content: flex-end;
+	color: white;
+	font-size: 13px;
+}
+
+.previous-pagination {
+	margin-right: 1rem;
+}
+
+.pagination {
+	display: flex;
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.pagination-break {
+	width: 3px;
+	height: 3px;
+	border-radius: 50px;
+	background-color: #41479b;
+	color: white;
+}
+
+.pagination-active {
+	background-color: #41479b;
+	color: white;
+}
+
+/* TABLE MODAL */
+.p-dialog .p-dialog-header {
+	padding: 0px;
+}
+
+/* LEGACY CALENDER */
+.p-calender {
+	background-color: red;
+}
+
+body {
+	--nested-dashbaord-active-nav-link-color: #41479b;
+}
+
+.p-message .p-message-wrapper {
+	padding: 5px 25px;
+}

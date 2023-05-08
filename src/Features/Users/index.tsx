@@ -4,6 +4,7 @@ import { useTable } from "react-table";
 import { UsersTableColumn } from "../../constants/users";
 import Pagination from "../../components/Pagination";
 import useTableData from "../../hooks/useTableData";
+import Table from "../../components/Table";
 
 const Users = () => {
 	const { tableData, isLoading } = useGetAllUsers();
@@ -19,7 +20,7 @@ const Users = () => {
 		<div className="w-3/4 mx-auto my-8">
 			<div className="flex flex-col">
 				<h1 className="mb-7 text-center text-black text-xl">Users Data</h1>
-				<div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+				{/* <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
 					<div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
 						{isLoading ? (
 							"Loading..."
@@ -70,10 +71,20 @@ const Users = () => {
 							</div>
 						)}
 					</div>
-				</div>
+				</div> */}
 				<Pagination
 					pageCount={CustomPageCount}
 					onPageChange={handleNavigation}
+				/>
+				<Table
+					// tableColumns={columns}
+					// data={data}
+					isLoading={isLoading}
+					getTableProps={getTableProps}
+					getTableBodyProps={getTableBodyProps}
+					headerGroups={headerGroups}
+					rows={rows}
+					prepareRow={prepareRow}
 				/>
 			</div>
 		</div>

@@ -29,3 +29,10 @@ export interface Company {
 	catchPhrase: string;
 	bs: string;
 }
+
+export interface UserTableData {
+	id: number;
+	name: string;
+	email: string;
+	address: string;
+}

@@ -1,7 +1,9 @@
+import Users from "./Features/Users";
+
 function App() {
 	return (
 		<>
-			<h1 className="font-semibold">Users Data</h1>
+			<Users />
 		</>
 	);
 }
